@@ -1,0 +1,57 @@
+{
+  "name": "is-odd-ts",
+  "version": "1.0.0",
+  "description": "A strict TypeScript-only utility to check if a number is odd, with modern type safety.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check --write",
+    "lint:fix": "biome check --unsafe --write",
+    "test": "npm run build && node --test dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JovanDj/is-odd-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JovanDj/is-odd-ts/issues"
+  },
+  "homepage": "https://github.com/JovanDj/is-odd-ts#readme",
+  "keywords": [
+    "odd",
+    "is-odd",
+    "number",
+    "typescript",
+    "ts",
+    "strict",
+    "type-safe",
+    "utility",
+    "ESM",
+    "modern-js"
+  ],
+  "author": {
+    "name": "Jovan Djukic",
+    "email": "jovandjukic2@gmail.com",
+    "url": "https://jovandjukic.com"
+  },
+  "license": "MIT",
+  "volta": {
+    "node": "20.17.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.2",
+    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/recommended": "^1.0.7",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "^22.7.4",
+    "typescript": "^5.6.2"
+  }
+}
