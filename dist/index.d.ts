@@ -1,7 +1,7 @@
 /*!
  * is-odd-ts <https://github.com/JovanDj/is-odd-ts>
  *
- * Copyright (c) 2024, Jovan Djukic.
+ * Copyright (c) 2025, Jovan Djukic.
  * Released under the MIT License.
  */
 /**

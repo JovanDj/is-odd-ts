@@ -1,12 +1,9 @@
-"use strict";
 /*!
  * is-odd-ts <https://github.com/JovanDj/is-odd-ts>
  *
- * Copyright (c) 2024, Jovan Djukic.
+ * Copyright (c) 2025, Jovan Djukic.
  * Released under the MIT License.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isOdd = void 0;
 /**
  * Checks if a given number is odd.
  *
@@ -20,17 +17,16 @@ exports.isOdd = void 0;
  * @throws {TypeError} - Throws if the input is not a finite number.
  * @throws {Error} - Throws if the input is not an integer or exceeds the safe integer limit.
  */
-const isOdd = (num) => {
-    if (!Number.isFinite(num)) {
-        throw new TypeError("Expected a finite number");
-    }
-    if (!Number.isInteger(num)) {
-        throw new Error("Expected an integer");
-    }
-    if (!Number.isSafeInteger(num)) {
-        throw new Error("Value exceeds maximum safe integer");
-    }
-    return num % 2 !== 0;
+export const isOdd = (num) => {
+	if (!Number.isFinite(num)) {
+		throw new TypeError("Expected a finite number");
+	}
+	if (!Number.isInteger(num)) {
+		throw new Error("Expected an integer");
+	}
+	if (!Number.isSafeInteger(num)) {
+		throw new Error("Value exceeds maximum safe integer");
+	}
+	return num % 2 !== 0;
 };
-exports.isOdd = isOdd;
 //# sourceMappingURL=index.js.map

@@ -28,6 +28,7 @@ Or with yarn:
 ```bash
 yarn add is-odd-ts
 ```
+This package is ESM-only and requires Node 22+.
 
 ## Usage
 
@@ -63,7 +64,7 @@ I've put effort into testing this utility across a variety of scenarios to make 
 
 - Regular odd and even integers (both positive and negative).
 - Handling of zero and negative zero.
-- Large numbers, including `Number.MAX_SAFE_INTEGER` and `Number.MIN_SAFE_INTEGER``.
+- Large numbers, including `Number.MAX_SAFE_INTEGER` and `Number.MIN_SAFE_INTEGER`.
 - Proper error handling for invalid inputs like `NaN`, `Infinity`, floats, and values beyond safe integer limits.
 
 Tests have been written using Node's native test runner.
