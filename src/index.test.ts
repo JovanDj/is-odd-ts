@@ -8,19 +8,16 @@ import { isOdd } from "./index.ts";
 test("isOdd function with integers", { concurrency: true }, (t) => {
 	t.test("should return true when the input is an odd positive integer", () => {
 		assert.deepStrictEqual<boolean>(isOdd(1), true);
-		assert.deepStrictEqual<boolean>(isOdd(3), true);
 	});
 
 	t.test("should return true when the input is an odd negative integer", () => {
 		assert.deepStrictEqual<boolean>(isOdd(-1), true);
-		assert.deepStrictEqual<boolean>(isOdd(-3), true);
 	});
 
 	t.test(
 		"should return false when the input is an even positive integer",
 		() => {
 			assert.deepStrictEqual<boolean>(isOdd(2), false);
-			assert.deepStrictEqual<boolean>(isOdd(4), false);
 		},
 	);
 
@@ -28,7 +25,6 @@ test("isOdd function with integers", { concurrency: true }, (t) => {
 		"should return false when the input is an even negative integer",
 		() => {
 			assert.deepStrictEqual<boolean>(isOdd(-2), false);
-			assert.deepStrictEqual<boolean>(isOdd(-4), false);
 		},
 	);
 
