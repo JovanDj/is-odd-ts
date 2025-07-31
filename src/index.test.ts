@@ -5,6 +5,11 @@ import fc from "fast-check";
 
 import { isOdd } from "./index.ts";
 
+fc.configureGlobal({
+	numRuns: 100_000,
+	baseSize: "xlarge",
+});
+
 test("isOdd function with integers", { concurrency: true }, (t) => {
 	t.test("should return true when the input is an odd positive integer", () => {
 		assert.deepStrictEqual<boolean>(isOdd(1), true);
@@ -38,13 +43,32 @@ test("isOdd function with integers", { concurrency: true }, (t) => {
 
 	t.test("should throw an error when the input is a positive float", () => {
 		assert.throws(() => isOdd(1.5), {
+			name: "TypeError",
 			message: "Expected an integer",
 		});
 	});
 
 	t.test("should throw an error when the input is a negative float", () => {
 		assert.throws(() => isOdd(-1.5), {
+			name: "TypeError",
 			message: "Expected an integer",
+		});
+	});
+
+	t.test("should throw when input is not a number", () => {
+		assert.throws(() => isOdd("5" as unknown as number), {
+			name: "TypeError",
+			message: "Expected a finite number",
+		});
+
+		assert.throws(() => isOdd(null as unknown as number), {
+			name: "TypeError",
+			message: "Expected a finite number",
+		});
+
+		assert.throws(() => isOdd(undefined as unknown as number), {
+			name: "TypeError",
+			message: "Expected a finite number",
 		});
 	});
 });
@@ -55,18 +79,21 @@ test(
 	(t) => {
 		t.test("should throw an error when the input is NaN", () => {
 			assert.throws(() => isOdd(Number.NaN), {
+				name: "TypeError",
 				message: "Expected a finite number",
 			});
 		});
 
 		t.test("should throw an error when the input is Infinity", () => {
 			assert.throws(() => isOdd(Number.POSITIVE_INFINITY), {
+				name: "TypeError",
 				message: "Expected a finite number",
 			});
 		});
 
 		t.test("should throw an error when the input is -Infinity", () => {
 			assert.throws(() => isOdd(Number.NEGATIVE_INFINITY), {
+				name: "TypeError",
 				message: "Expected a finite number",
 			});
 		});
@@ -109,6 +136,7 @@ test(
 			"should throw an error when the input is exactly one more than Number.MAX_SAFE_INTEGER",
 			() => {
 				assert.throws(() => isOdd(Number.MAX_SAFE_INTEGER + 1), {
+					name: "RangeError",
 					message: "Value exceeds maximum safe integer",
 				});
 			},
@@ -118,6 +146,7 @@ test(
 			"should throw an error when the input is exactly one less than Number.MIN_SAFE_INTEGER",
 			() => {
 				assert.throws(() => isOdd(Number.MIN_SAFE_INTEGER - 1), {
+					name: "RangeError",
 					message: "Value exceeds maximum safe integer",
 				});
 			},
@@ -173,7 +202,11 @@ test("isOdd property — floats throw", { concurrency: true }, () => {
 				noDefaultInfinity: true,
 				noInteger: true,
 			}),
-			(n) => assert.throws(() => isOdd(n)),
+			(n) =>
+				assert.throws(() => isOdd(n), {
+					name: "TypeError",
+					message: "Expected an integer",
+				}),
 		),
 	);
 });
@@ -186,7 +219,11 @@ test("isOdd property — doubles throw", { concurrency: true }, () => {
 				noDefaultInfinity: true,
 				noInteger: true,
 			}),
-			(n) => assert.throws(() => isOdd(n)),
+			(n) =>
+				assert.throws(() => isOdd(n), {
+					name: "TypeError",
+					message: "Expected an integer",
+				}),
 		),
 	);
 });
