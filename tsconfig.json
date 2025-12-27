@@ -1,7 +1,7 @@
 {
 	"extends": [
 		"@tsconfig/recommended/tsconfig.json",
-		"@tsconfig/node22/tsconfig.json",
+		"@tsconfig/node24/tsconfig.json",
 		"@tsconfig/node-ts/tsconfig.json",
 		"@tsconfig/strictest/tsconfig.json"
 	],
@@ -9,7 +9,9 @@
 		"outDir": "dist",
 		"declaration": true,
 		"declarationMap": true,
-		"sourceMap": true
+		"sourceMap": true,
+		"isolatedDeclarations": true
 	},
-	"include": ["src"]
+	"include": ["src"],
+	"exclude": ["**/*.test.ts"]
 }

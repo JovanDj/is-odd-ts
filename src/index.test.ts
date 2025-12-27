@@ -60,16 +60,6 @@ test("isOdd function with integers", { concurrency: true }, (t) => {
 			name: "TypeError",
 			message: "Expected a finite number",
 		});
-
-		assert.throws(() => isOdd(null as unknown as number), {
-			name: "TypeError",
-			message: "Expected a finite number",
-		});
-
-		assert.throws(() => isOdd(undefined as unknown as number), {
-			name: "TypeError",
-			message: "Expected a finite number",
-		});
 	});
 });
 

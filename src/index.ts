@@ -16,7 +16,7 @@
  * @param {number} num - The number to check if it's odd.
  * @returns {boolean} - Returns `true` if the number is odd, `false` if it's even.
  * @throws {TypeError} - Throws if the input is not a finite number or integer.
- * @throws {RangeError} - Throws if the input is not an integer or exceeds the safe integer limit.
+ * @throws {RangeError} - Throws if the input exceeds the safe integer limit.
  */
 export const isOdd = (num: number): boolean => {
 	if (!Number.isFinite(num)) {

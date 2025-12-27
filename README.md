@@ -28,7 +28,7 @@ Or with yarn:
 ```bash
 yarn add is-odd-ts
 ```
-This package is ESM-only and requires Node 22+.
+This package is ESM-only and requires Node 24+.
 
 ## Usage
 
